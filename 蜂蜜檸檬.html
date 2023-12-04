@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>蜂蜜檸檬客服系統</title>
+</head>
+<body>
+    <h1>蜂蜜檸檬客服系統</h1>
+    <input type="text" id="query" placeholder="輸入你要問的問題">
+    <button onclick="search()">Search</button>
+    <p id="result"></p>
+
+    <script>
+        function search() {
+            var query = document.getElementById('query').value;
+            var url = 'https://script.google.com/macros/s/AKfycbxew6UHf3YupvIeCF6t3cHGy_zzC4MLE25kMaLn7aNfCwkQVS_lr1Xa4Gcuth3AvwbBAg/exec?q=' + encodeURIComponent(query);
+
+            fetch(url)
+                .then(response => response.text())
+                .then(text => document.getElementById('result').innerText = text)
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
